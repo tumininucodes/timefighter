@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Time Fighter</string>
+    <string name="your_score_1_d">Your score: %1$d</string>
+    <string name="time_left_1_d">Time left: %1$d</string>
+    <string name="tap_me">Tap me</string>
+    <string name="game_over">Times up! Your score was: %1$d</string>
+    <string name="about">About</string>
+    <string name="about_title">Timefighter %1$s</string>
+    <string name="about_message">Created by YOUR NAME HERE</string>
+</resources>
