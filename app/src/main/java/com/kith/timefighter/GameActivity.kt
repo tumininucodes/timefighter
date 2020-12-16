@@ -14,7 +14,7 @@ import com.kith.timefighter.databinding.ActivityGameBinding
 class GameActivity : AppCompatActivity() {
 
     // Initialisation of relevant properties
-    lateinit var binding: ActivityGameBinding
+    lateinit var gameBinding: ActivityGameBinding
     private var score = 0
     private var gameStarted = false
     private lateinit var countDownTimer: CountDownTimer
@@ -34,8 +34,8 @@ class GameActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_game)
-        setContentView(binding.root)
+        gameBinding = DataBindingUtil.setContentView(this, R.layout.activity_game)
+        setContentView(gameBinding.root)
         Log.d(TAG, "onCreate called, Score is: $score")
 
         if (savedInstanceState != null) {
@@ -46,7 +46,7 @@ class GameActivity : AppCompatActivity() {
             resetGame()
         }
 
-        binding.tapMeButton.setOnClickListener {
+        gameBinding.tapMeButton.setOnClickListener {
             incrementScore()
         }
 
@@ -86,17 +86,17 @@ class GameActivity : AppCompatActivity() {
         }
         score++
         val newScore = getString(R.string.your_score_1_d, score)
-        binding.yourScoreTextView.text = newScore
+        gameBinding.yourScoreTextView.text = newScore
     }
 
     private fun resetGame() {
         score = 0
 
         val initialScore = getString(R.string.your_score_1_d, score)
-        binding.yourScoreTextView.text = initialScore
+        gameBinding.yourScoreTextView.text = initialScore
 
         val initialTimeLeft = getString(R.string.time_left_1_d, 60)
-        binding.timeLeftTextView.text = initialTimeLeft
+        gameBinding.timeLeftTextView.text = initialTimeLeft
 
         countDownTimer = object : CountDownTimer(initialCountDown, countDownInterval) {
             override fun onFinish() {
@@ -107,7 +107,7 @@ class GameActivity : AppCompatActivity() {
                 timeLeft = millisUntilFinished.toInt() / 1000
 
                 val timeLeftString = getString(R.string.time_left_1_d, timeLeft)
-                binding.timeLeftTextView.text = timeLeftString
+                gameBinding.timeLeftTextView.text = timeLeftString
             }
         }
 
@@ -126,10 +126,10 @@ class GameActivity : AppCompatActivity() {
 
     private fun restoreGame() {
         val restoredScore = getString(R.string.your_score_1_d, score)
-        binding.yourScoreTextView.text = restoredScore
+        gameBinding.yourScoreTextView.text = restoredScore
 
         val restoredTime = getString(R.string.time_left_1_d, timeLeft)
-        binding.timeLeftTextView.text = restoredTime
+        gameBinding.timeLeftTextView.text = restoredTime
 
         countDownTimer = object : CountDownTimer((timeLeft * 1000).toLong(), countDownInterval) {
             override fun onFinish() {
@@ -140,7 +140,7 @@ class GameActivity : AppCompatActivity() {
                 timeLeft = millisUntilFinished.toInt() / 1000
 
                 val timeLeftString = getString(R.string.time_left_1_d, timeLeft)
-                binding.timeLeftTextView.text = timeLeftString
+                gameBinding.timeLeftTextView.text = timeLeftString
             }
         }
         countDownTimer.start()

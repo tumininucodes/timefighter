@@ -6,9 +6,9 @@
     <string name="game_over">Times up! Your score was: %1$d</string>
     <string name="about">About</string>
     <string name="about_title">Timefighter %1$s</string>
-    <string name="about_message">Created by YOUR NAME HERE</string>
+    <string name="about_message">Created by Oluwatumininu Ojo</string>
     <string name="yo">Yo!
-    Time Fighter is a a simple game where you race against time and make as many clicks as possible before the time runs out. You are gonna enjoy it.
+    Time Fighter is a simple game where you race against time and make as many clicks as possible before the time runs out. You are gonna enjoy it.
     Have fun!</string>
     <string name="continue_text">Continue</string>
     <string name="clock_image">Clock Image</string>
